@@ -1,6 +1,6 @@
 {
   "name": "@andela-dev/ngx-intl-tel-input",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "peerDependencies": {
     "@angular/common": "8.x - 13.x",
     "@angular/core": "8.x - 13.x",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AndelaDev/ngx-intl-tel-input"
+    "url": "git+https://github.com/andela-dev/ngx-intl-tel-input"
   },
   "author": {
     "name": "Andela"
@@ -33,7 +33,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AndelaDev/ngx-intl-tel-input/issues"
+    "url": "https://github.com/andela-dev/ngx-intl-tel-input/issues"
   },
   "devDependencies": {
     "@types/google-libphonenumber": "^7.4.17"

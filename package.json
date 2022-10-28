@@ -70,12 +70,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AndelaDev/ngx-intl-tel-input.git"
+    "url": "git+https://github.com/andela-dev/ngx-intl-tel-input.git"
   },
   "author": "Andela",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AndelaDev/ngx-intl-tel-input/issues"
+    "url": "https://github.com/andela-dev/ngx-intl-tel-input/issues"
   },
-  "homepage": "https://github.com/AndelaDev/ngx-intl-tel-input#readme"
+  "homepage": "https://github.com/andela-dev/ngx-intl-tel-input#readme"
 }
