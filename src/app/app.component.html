@@ -13,21 +13,29 @@
 	<form #f="ngForm"
 		[formGroup]="phoneForm">
 		<div class="wrapper">
-			<ngx-intl-tel-input [cssClass]="'custom'"
-				[preferredCountries]="preferredCountries"
-				[enableAutoCountrySelect]="true"
-				[enablePlaceholder]="true"
-				[searchCountryFlag]="true"
-				[searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-				[selectFirstCountry]="false"
-				[selectedCountryISO]="CountryISO.India"
-				[maxLength]="15"
-				[phoneValidation]="true"
-				[separateDialCode]="separateDialCode"
-				[numberFormat]="PhoneNumberFormat.National"
-				name="phone"
-				formControlName="phone">
-			</ngx-intl-tel-input>
+      <ngx-intl-tel-input
+    [preferredCountries]="[
+      CountryISO.UnitedStates,
+      CountryISO.Nigeria,
+      CountryISO.UnitedKingdom,
+      CountryISO.Kenya,
+      CountryISO.Canada,
+      CountryISO.India,
+      CountryISO.SouthAfrica,
+      CountryISO.Germany
+    ]"
+    [enableAutoCountrySelect]="true"
+    [enablePlaceholder]="true"
+    [searchCountryFlag]="true"
+    [searchCountryField]="[SearchCountryField.All]"
+    [selectFirstCountry]="false"
+    [selectedCountryISO]="CountryISO.UnitedStates"
+    [numberFormat]="PhoneNumberFormat.International"
+    [separateDialCode]="true"
+    [maxLength]="15"
+    [phoneValidation]="true"
+    class="form-control p-0"
+  ></ngx-intl-tel-input>
 		</div>
 		<div class="wrapper">
 			<button (click)="f.reset()">Reset</button>

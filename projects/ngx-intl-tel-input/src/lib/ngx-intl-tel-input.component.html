@@ -26,7 +26,10 @@
 				<input id="country-search-box"
           tabindex="0"
 					[(ngModel)]="countrySearchText"
-					(keyup)="searchCountry()"
+					(keyup)="searchCountry($event)"
+					(keydown.arrowdown)="onArrowKeyPress($event)"
+					(keydown.arrowup)="onArrowKeyPress($event)"
+					(keyup.enter)="onEnterKeyPress($event)"
 					(click)="$event.stopPropagation()"
 					[placeholder]="searchCountryPlaceholder"
           autocomplete="off"
@@ -34,28 +37,32 @@
 			</div>
 			<ul class="iti__country-list"
 				#countryList>
-        <ng-container *ngIf="!countrySearchText">
-          <li class="iti__country iti__preferred"
-            *ngFor="let country; let index = index of preferredCountriesInDropDown"
-            (click)="onCountrySelect(country, focusable)"
-            (keyup.enter)="onCountrySelect(country, focusable)"
-            tabindex="0"
-            [id]="country.htmlId+'-preferred'">
-            <div class="iti__flag-box">
-              <div class="iti__flag"
-                [ngClass]="country.flagClass"></div>
-            </div>
-            <span class="iti__country-name">{{country.name}}</span>
-            <span class="iti__dial-code">+{{country.dialCode}}</span>
-          </li>
-        </ng-container>
+				<ng-container *ngIf="!countrySearchText">
+					<li class="iti__country iti__preferred"
+						*ngFor="let country; let index = index of preferredCountriesInDropDown"
+						(click)="onCountrySelect(country, focusable)"
+						(keyup.enter)="onEnterKeyPress($event)"
+            (keydown.arrowdown)="onArrowKeyPress($event)"
+            (keydown.arrowup)="onArrowKeyPress($event)"
+						tabindex="0"
+						[id]="country.htmlId+'-preferred'">
+						<div class="iti__flag-box">
+							<div class="iti__flag"
+								[ngClass]="country.flagClass"></div>
+						</div>
+						<span class="iti__country-name">{{country.name}}</span>
+						<span class="iti__dial-code">+{{country.dialCode}}</span>
+					</li>
+				</ng-container>
 				<li class="iti__divider"
-					*ngIf="preferredCountriesInDropDown?.length"></li>
+					*ngIf="countrySearchText.length <= 0"></li>
 				<li class="iti__country iti__standard"
 					*ngFor="let country of countriesList"
           tabindex="0"
 					(click)="onCountrySelect(country, focusable)"
-          (keyup.enter)="onCountrySelect(country, focusable)"
+					(keyup.enter)="onEnterKeyPress($event)"
+          (keydown.arrowdown)="onArrowKeyPress($event)"
+          (keydown.arrowup)="onArrowKeyPress($event)"
 					[id]="country.htmlId">
 					<div class="iti__flag-box">
 						<div class="iti__flag"
