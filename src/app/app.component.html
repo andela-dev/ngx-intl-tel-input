@@ -13,31 +13,12 @@
 	<form #f="ngForm"
 		[formGroup]="phoneForm">
 		<div class="wrapper">
-      <ngx-intl-tel-input
-    [preferredCountries]="[
-      CountryISO.UnitedStates,
-      CountryISO.Nigeria,
-      CountryISO.UnitedKingdom,
-      CountryISO.Kenya,
-      CountryISO.Canada,
-      CountryISO.India,
-      CountryISO.SouthAfrica,
-      CountryISO.Germany
-    ]"
-    [enableAutoCountrySelect]="true"
-    [enablePlaceholder]="true"
-    [searchCountryFlag]="true"
-    [searchCountryField]="[SearchCountryField.All]"
-    [selectFirstCountry]="false"
-    [selectedCountryISO]="CountryISO.UnitedStates"
-    [numberFormat]="PhoneNumberFormat.International"
-    [separateDialCode]="true"
-    [maxLength]="15"
-    [phoneValidation]="true"
-    class="form-control p-0"
-  ></ngx-intl-tel-input>
+			<app-custom-phone-input inputId="phoneNumber"
+				[control]="phoneFormControl"></app-custom-phone-input>
+        <input type="text" placeholder="Hit enter here to test submit form">
 		</div>
 		<div class="wrapper">
+			<button (click)="submit()" type="submit">Submit</button>
 			<button (click)="f.reset()">Reset</button>
 		</div>
 	</form>

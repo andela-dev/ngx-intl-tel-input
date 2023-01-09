@@ -94,8 +94,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   @ViewChild('countryListDropdown') countryListDropdown: BsDropdownDirective;
   @ViewChild('countryList') countryList: ElementRef;
 
-  onTouched = () => {};
-  propagateChange = (_: ChangeData) => {};
+  onTouched = () => { };
+  propagateChange = (_: ChangeData) => { };
 
   constructor(private countryCodeData: CountryCode) {
     // If this is not set, ngx-bootstrap will try to use the bs3 CSS (which is not what we've embedded) and will
@@ -123,9 +123,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
   }
 
   /*
-		This is a wrapper method to avoid calling this.ngOnInit() in writeValue().
-		Ref: http://codelyzer.com/rules/no-life-cycle-call/
-	*/
+    This is a wrapper method to avoid calling this.ngOnInit() in writeValue().
+    Ref: http://codelyzer.com/rules/no-life-cycle-call/
+  */
   init() {
     this.fetchCountryData();
     if (this.preferredCountries.length) {
@@ -154,7 +154,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
   public openCountryList(event: Event) {
     event.preventDefault();
-    //this.countrySearchText = '';
+
     this.countriesList = [...this.allCountries];
     this.dropdownToggle.nativeElement.blur();
     this.countryElementIndex = 0;
@@ -163,7 +163,10 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       this.countryListDropdown.hide();
     } else {
       this.countryListDropdown.show();
-      document.getElementById('country-search-box')?.focus();
+
+      setTimeout(() => {
+        document.getElementById('country-search-box')?.focus();
+      }, 100);
 
       //wait for the dropdown to be visible and then highlight the first country
 
@@ -340,7 +343,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       countryCode =
         number && number.getCountryCode()
           ? // @ts-ignore
-            this.getCountryIsoCode(number.getCountryCode(), number)
+          this.getCountryIsoCode(number.getCountryCode(), number)
           : this.selectedCountry.iso2;
       if (countryCode && countryCode !== this.selectedCountry.iso2) {
         const newCountry = this.allCountries
@@ -463,10 +466,14 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
   public onEnterKeyPress(event: KeyboardEvent): void {
     event.preventDefault();
+    event.stopImmediatePropagation();
+    event.stopPropagation();
+
     const countryElementList = document.getElementsByClassName(
       'iti__country'
     ) as HTMLCollectionOf<HTMLElement>;
     const selectedCountryElement = countryElementList[this.countryElementIndex];
+
     this.selectedCountry = this.allCountries.filter(
       (country) =>
         country.name ===
@@ -474,8 +481,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
           'iti__country-name'
         )[0].innerHTML
     )[0];
+
     this.onCountrySelect(this.selectedCountry, selectedCountryElement);
-    document.getElementById('phone')?.focus();
+    document.getElementById(this.inputId)?.focus();
   }
 
   public onInputKeyPress(event: KeyboardEvent): void {
@@ -550,7 +558,7 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     let number: lpn.PhoneNumber;
     try {
       number = this.phoneUtil.parse(phoneNumber, countryCode.toUpperCase());
-    } catch (e) {}
+    } catch (e) { }
     // @ts-ignore
     return number;
   }
@@ -610,9 +618,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     let matchedCountry = mainCountry ? mainCountry.iso2 : undefined;
 
     /*
-			Iterate over each secondary country and check if nationalNumber starts with any of areaCodes available.
-			If no matches found, fallback to the main country.
-		*/
+      Iterate over each secondary country and check if nationalNumber starts with any of areaCodes available.
+      If no matches found, fallback to the main country.
+    */
     secondaryCountries.forEach((country) => {
       // @ts-ignore
       country.areaCodes.forEach((areaCode) => {
