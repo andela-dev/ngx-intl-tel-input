@@ -30,6 +30,7 @@
 					(keydown.arrowdown)="onArrowKeyPress($event)"
 					(keydown.arrowup)="onArrowKeyPress($event)"
 					(keydown.enter)="onEnterKeyPress($event)"
+					(keyup.escape)="openCountryList($event)"
 					(click)="$event.stopPropagation()"
 					[placeholder]="searchCountryPlaceholder"
           autocomplete="off"

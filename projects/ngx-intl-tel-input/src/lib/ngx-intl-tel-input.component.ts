@@ -5,6 +5,7 @@ import {
   ElementRef,
   EventEmitter,
   forwardRef,
+  HostListener,
   Input,
   OnChanges,
   OnInit,
@@ -103,6 +104,13 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     setTheme('bs4');
   }
 
+  @HostListener('document:click', ['$event'])
+  public clickOutside(event): void {
+    if (this.countryListDropdown.isOpen) {
+      this.openCountryList(event);
+    }
+  }
+
   ngOnInit() {
     this.init();
   }
@@ -154,6 +162,8 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
 
   public openCountryList(event: Event) {
     event.preventDefault();
+    event.stopImmediatePropagation();
+    event.stopPropagation();
 
     this.countriesList = [...this.allCountries];
     this.dropdownToggle.nativeElement.blur();

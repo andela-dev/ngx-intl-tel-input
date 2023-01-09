@@ -1,6 +1,6 @@
 {
   "name": "@andela-dev/ngx-intl-tel-input",
-  "version": "1.0.24",
+  "version": "1.1.0",
   "peerDependencies": {
     "@angular/common": "8.x - 13.x",
     "@angular/core": "8.x - 13.x",
