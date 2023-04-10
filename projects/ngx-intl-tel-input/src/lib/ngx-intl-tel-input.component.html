@@ -5,7 +5,8 @@
     [autoClose]="true"
     #countryListDropdown="bs-dropdown"
 		[ngClass]="{'disabled': disabled}"
-		[isDisabled]="disabled">
+		[isDisabled]="disabled"
+  >
 		<div class="iti__selected-flag dropdown-toggle"
       #dropdownToggle
       tabindex="0"
@@ -17,7 +18,7 @@
 				[ngClass]="selectedCountry?.flagClass || ''"></div>
 			<div *ngIf="separateDialCode"
 				class="selected-dial-code">+{{selectedCountry.dialCode}}</div>
-			<div class="iti__arrow"></div>
+        <span class="mdi mdi-chevron-down" style="font-size: 24px; color: #424D53;"></span>
 		</div>
 		<div *dropdownMenu
 			class="dropdown-menu country-dropdown">
