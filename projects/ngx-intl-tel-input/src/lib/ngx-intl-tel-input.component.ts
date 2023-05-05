@@ -466,9 +466,9 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
       document.getElementsByClassName('iti__country')
     ) as HTMLElement[];
     countryElementList.forEach((countryElement) => {
-      countryElement.style.backgroundColor = 'white';
+      countryElement.classList.remove('selected-country')
       if (countryElement === element) {
-        countryElement.style.backgroundColor = '#0000001a';
+        countryElement.classList.add('selected-country');
         countryElement.scrollIntoView({ block: 'center' });
       }
     });

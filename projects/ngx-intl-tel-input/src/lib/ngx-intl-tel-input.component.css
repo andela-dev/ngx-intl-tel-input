@@ -1,8 +1,18 @@
+li.iti__country {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 8px 10px;
+  margin: 4px;
+}
 li.iti__country:hover {
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: #245A23 !important;
+  color: white !important;
+  border-radius: 4px;
 }
 li.iti__country:focus {
-	background-color: rgba(0, 0, 0, 0.1);
+	color: white;
+  border-radius: 4px;
+  background-color: #163A16 !important;
 }
 .iti__selected-flag.dropdown-toggle:after {
 	content: none;
@@ -14,20 +24,20 @@ li.iti__country:focus {
 	background: none;
 }
 .country-dropdown {
-	border: 1px solid #ccc;
 	width: fit-content;
 	padding: 1px;
 	border-collapse: collapse;
   z-index: unset;
+  box-shadow: 0 16px 32px -12px rgba(0,0,0,0.16);
 }
 .search-container {
 	position: relative;
+  padding: 8px 10px;
 }
 .search-container input {
 	width: 100%;
 	border: none;
-	border-bottom: 1px solid #ccc;
-	padding-left: 10px;
+	padding-left: 12px;
 }
 .search-icon {
 	position: absolute;
@@ -38,6 +48,7 @@ li.iti__country:focus {
 .iti__country-list {
 	position: relative;
 	border: none;
+  overflow-x: hidden;
 }
 
 .iti input#country-search-box {
@@ -65,17 +76,16 @@ li.iti__country:focus {
 
 .iti .iti__country-list {
 	box-shadow: none;
-	font-size: 14px;
+	font-size: 1rem;
 	margin-left: 0;
 	width: 244px;
 	max-height: 170px;
 }
 
 .iti .search-container input {
-	font-size: 14px;
+	font-size: 1rem;
 	border-color: #c7cace;
 	border-radius: 0;
-	padding: 5px 10px;
 }
 
 .iti .search-container input:focus {
@@ -141,4 +151,14 @@ ngx-intl-tel-input input::placeholder {
 
 ngx-intl-tel-input input[disabled] {
 	background-color: #e5eaf1;
+}
+
+.selected-country {
+  color: white !important;
+  border-radius: 4px;
+  background-color: #163A16 !important;
+}
+
+.selected-country > .iti__dial-code {
+  color: white !important;
 }
