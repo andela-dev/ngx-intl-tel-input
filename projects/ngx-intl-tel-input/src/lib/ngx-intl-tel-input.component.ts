@@ -168,28 +168,28 @@ export class NgxIntlTelInputComponent implements OnInit, OnChanges {
     this.countriesList = [...this.allCountries];
     this.dropdownToggle.nativeElement.blur();
     this.countryElementIndex = 0;
-
+    
     if (this.countryListDropdown.isOpen) {
       this.countryListDropdown.hide();
     } else {
       this.countryListDropdown.show();
-
+      
       setTimeout(() => {
         document.getElementById('country-search-box')?.focus();
       }, 100);
-
+      
       //wait for the dropdown to be visible and then highlight the first country
-
+      
       if (!this.countrySearchText) {
         setTimeout(() => {
           const highlightCountry = document.getElementsByClassName(
             'iti__country'
-          )[0] as HTMLElement;
-          this.countryHighlight(highlightCountry);
-        }, 10);
-      } else {
-        this.searchCountry(this.countrySearchText);
-        setTimeout(() => {
+            )[0] as HTMLElement;
+            this.countryHighlight(highlightCountry);
+          }, 10);
+        } else {
+          this.searchCountry(this.countrySearchText);
+          setTimeout(() => {
           if (this.countriesList.includes(this.selectedCountry)) {
             this.countryElementIndex = this.countriesList.indexOf(
               this.selectedCountry

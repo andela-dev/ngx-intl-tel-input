@@ -68,17 +68,16 @@ li.iti__country:focus {
 }
 
 .iti .dropdown-menu.country-dropdown {
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
+	border-top-left-radius: 0.25rem;
+	border-top-right-radius: 0.25rem;
 	border-color: #c7cace;
-	margin-top: 1px;
+	margin-top: 2px;
 }
 
 .iti .iti__country-list {
 	box-shadow: none;
 	font-size: 1rem;
 	margin-left: 0;
-	width: 244px;
 	max-height: 170px;
 }
 
@@ -110,13 +109,12 @@ ngx-intl-tel-input input {
   font-weight: 400;
 	height: 48px;
 	margin-bottom: 20px;
-	padding: 10px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #717A7E;
 	border-radius: 8px;
 	font-size: 16px;
-  padding-left: 12px !important;
+  padding: 12px !important;
 }
 
 ngx-intl-tel-input.ng-invalid.ng-touched input {
@@ -131,6 +129,7 @@ ngx-intl-tel-input input:focus {
 	outline: none !important;
 	border-color: #3498db;
 	box-shadow: 0 0 0 0 #000;
+  padding: 11px !important;
 }
 
 ngx-intl-tel-input input::-webkit-input-placeholder {
