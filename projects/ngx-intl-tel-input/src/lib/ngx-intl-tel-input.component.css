@@ -27,7 +27,7 @@ li.iti__country:focus {
 	width: fit-content;
 	padding: 1px;
 	border-collapse: collapse;
-  z-index: unset;
+  z-index: 3 !important;
   box-shadow: 0 16px 32px -12px rgba(0,0,0,0.16);
 }
 .search-container {
